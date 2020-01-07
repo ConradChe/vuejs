@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .active {
+    color: red;
+  }
+</style>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="(item ,index) in movies" :class="[count === index ? 'active':'']" @click="getIndex(index)">
+      {{index}}-{{item}}
+    </li>
+  </ul>
+
+  <ul>
+    <li v-for="(item ,index) in movies" :class="{active:isRed === index}" @click="getIndex1(index)">{{index}}-{{item}}
+    </li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: "hello vue",
+      movies: ['星际穿越', '大话西游', '少年派', '盗梦空间'],
+      count: 0,
+      isRed: 5
+    },
+    methods: {
+      getIndex: function (index) {
+        this.count = index
+      },
+      getIndex1: function (index) {
+        this.isRed = index
+      }
+    }
+  })
+</script>
+</body>
+</html>

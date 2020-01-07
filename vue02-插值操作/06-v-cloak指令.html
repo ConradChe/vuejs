@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<style>
+  [v-cloak]{
+    display: none;
+  }
+</style>
+<body>
+<div id="app" v-cloak>
+  {{message}}
+</div>
+
+<script>
+  //在vue解析之前，div有v-cloak属性（决定标签是否显示），解析后将没有
+  setTimeout(function () {
+    const app = new Vue({
+      el: '#app',
+      data: {
+        message: 'vue模板'
+      }
+    })
+  }, 1000)
+
+</script>
+</body>
+</html>

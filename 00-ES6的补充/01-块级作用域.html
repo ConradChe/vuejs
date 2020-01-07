@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+<script>
+  //ES5之前因为if和for都没有块级作用域的概念，所以在很多时候，我们都借助function的作用域来解决外面变量的问题
+  //ES6中加入了let，let有if和for的块级作用域
+  {
+    var name = "张三";
+    console.log(name);
+  }
+  console.log(name);
+
+  const btns = document.getElementsByTagName("button");
+
+  // for (var i=0;i<btns.length;i++){
+  //   btns[i].addEventListener('click',function () {
+  //     console.log("第"+i+"个按钮被按下");
+  //   })
+  // }
+
+  for (let i=0;i<btns.length;i++){
+    btns[i].addEventListener('click',function () {
+      console.log("第"+i+"个按钮被按下");
+    })
+  }
+</script>
+</body>
+</html>

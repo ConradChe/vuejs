@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script src="../js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <img v-bind:src="imgUrl" alt="">
+  <a v-bind:href="aHref">百度一下</a>
+
+  <!--语法糖写法-->
+  <img :src="imgUrl" alt="">
+  <a :href="aHref">百度一下</a>
+</div>
+
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'vue模板',
+      imgUrl:'https://i0.hdslb.com/bfs/sycp/creative_img/202001/e6a2fb998ab73d15d801cf4b4226ad0a.jpg@1100w_484h_1c_100q.jpg',
+      aHref:'http://www.baidu.com'
+    }
+  })
+</script>
+</body>
+</html>
