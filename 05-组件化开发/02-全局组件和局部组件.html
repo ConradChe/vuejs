@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <my-cpn></my-cpn>
+  <my-cpn></my-cpn>
+  <cpn></cpn>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  //1.创建组件
+  const cpnC = Vue.extend({
+    template: `
+    <div>
+      <h1>个人博客系统</h1>
+      <p>博客标题</p>
+      <p>
+        其实主要的功能是图片的处理:kindeditor对输入的内容会作为html标签处理，
+        对于image的做法是先将图片传到后台服务器，然后上传成功之后回传图片的URL，之后内容中增加进行回显，
+        当然保存到数据库也是img标签进行保存的
+      </p>
+    </div>
+    `
+  });
+
+  //2. 注册组件（全局组件）
+  // Vue.component('my-cpn', cpnC);
+
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'vue模板'
+    },
+    components: {
+      //局部组件
+      cpn: cpnC
+    }
+  })
+</script>
+</body>
+</html>
