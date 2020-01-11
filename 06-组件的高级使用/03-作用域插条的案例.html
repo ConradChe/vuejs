@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <cpn></cpn>
+  <cpn>
+    <template slot-scope="slot">
+      <!--<span v-for="item in slot.data">{{item}} - </span>-->
+      <span>{{slot.data.join(' - ')}}</span>
+    </template>
+  </cpn>
+  <cpn>
+    <template slot-scope="slot">
+      <!--<span v-for="item in slot.data">{{item}} * </span>-->
+      <span>{{slot.data.join(' * ')}}</span>
+    </template>
+  </cpn>
+  <cpn>
+    <template slot-scope="slot">
+      <span>{{slot.data}}</span>
+    </template>
+  </cpn>
+</div>
+
+<template id="cpn">
+  <div>
+    <slot :data="pLanguage">
+      <ul>
+        <li v-for="item in pLanguage">{{item}}</li>
+      </ul>
+    </slot>
+    <!--<slot :msg="messages">-->
+      <!--<span>haha</span>-->
+    <!--</slot>-->
+  </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'vue模板'
+    },
+    components: {
+      cpn: {
+        template: '#cpn',
+        data() {
+          return {
+            pLanguage: ['JavaScript', 'C++', 'Java', 'C#', 'Python', 'Go', 'Swift'],
+            messages:"哈哈哈啊哈"
+          }
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>
